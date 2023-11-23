@@ -7,11 +7,11 @@
 -->
 <template>
   <div class="centermap">
-    <div class="maptitle">
+    <!-- <div class="maptitle">
       <div class="zuo"></div>
       <span class="titletext">{{ maptitle }}</span>
       <div class="you"></div>
-    </div>
+    </div> -->
     <div class="mapwrap">
       <dv-border-box-13>
         <div class="quanguo" @click="getData('china')" v-if="code !== 'china'">
@@ -100,187 +100,382 @@ export default {
     },
     init(name, data, data2) {
       // console.log(data2);
-      let top = 45;
-      let zoom = 1.05;
+      // let top = 45;
+      // let zoom = 1.05;
+      // let option = {
+      //   backgroundColor: "rgba(0,0,0,0)",
+      //   tooltip: {
+      //     show: false,
+      //   },
+      //   legend: {
+      //     show: false,
+      //   },
+      //   visualMap: {
+      //     left: 20,
+      //     bottom: 20,
+      //     pieces: [
+      //       { gte: 1000, label: "1000个以上" }, // 不指定 max，表示 max 为无限大（Infinity）。
+      //       { gte: 600, lte: 999, label: "600-999个" },
+      //       { gte: 200, lte: 599, label: "200-599个" },
+      //       { gte: 50, lte: 199, label: "49-199个" },
+      //       { gte: 10, lte: 49, label: "10-49个" },
+      //       { lte: 9, label: "1-9个" }, // 不指定 min，表示 min 为无限大（-Infinity）。
+      //     ],
+      //     inRange: {
+      //       // 渐变颜色，从小到大
+      //       color: [
+      //         "#c3d7df",
+      //         "#5cb3cc",
+      //         "#8abcd1",
+      //         "#66a9c9",
+      //         "#2f90b9",
+      //         "#1781b5",
+      //       ],
+      //     },
+      //     textStyle: {
+      //       color: "#fff",
+      //     },
+      //   },
+      //   geo: {
+      //     map: name,
+      //     roam: false,
+      //     selectedMode: false, //是否允许选中多个区域
+      //     zoom: zoom,
+      //     top: top,
+      //     // aspectScale: 0.78,
+      //     show: false,
+      //   },
+      //   series: [
+      //     {
+      //       name: "MAP",
+      //       type: "map",
+      //       map: name,
+      //       // aspectScale: 0.78,
+      //       data: data,
+      //       // data: [1,100],
+      //       selectedMode: false, //是否允许选中多个区域
+      //       zoom: zoom,
+      //       geoIndex: 1,
+      //       top: top,
+      //       tooltip: {
+      //         show: true,
+      //         formatter: function (params) {
+      //           if (params.data) {
+      //             return params.name + "：" + params.data["value"];
+      //           } else {
+      //             return params.name;
+      //           }
+      //         },
+      //         backgroundColor: "rgba(0,0,0,.6)",
+      //         borderColor: "rgba(147, 235, 248, .8)",
+      //         textStyle: {
+      //           color: "#FFF",
+      //         },
+      //       },
+      //       label: {
+      //         show: false,
+      //         color: "#000",
+      //         // position: [-10, 0],
+      //         formatter: function (val) {
+      //           // console.log(val)
+      //           if (val.data !== undefined) {
+      //             return val.name.slice(0, 2);
+      //           } else {
+      //             return "";
+      //           }
+      //         },
+      //         rich: {},
+      //       },
+      //       emphasis: {
+      //         label: {
+      //           show: false,
+      //         },
+      //         itemStyle: {
+      //           areaColor: "#389BB7",
+      //           borderWidth: 1,
+      //         },
+      //       },
+      //       itemStyle: {
+      //         borderColor: "rgba(147, 235, 248, .8)",
+      //         borderWidth: 1,
+      //         areaColor: {
+      //           type: "radial",
+      //           x: 0.5,
+      //           y: 0.5,
+      //           r: 0.8,
+      //           colorStops: [
+      //             {
+      //               offset: 0,
+      //               color: "rgba(147, 235, 248, 0)", // 0% 处的颜色
+      //             },
+      //             {
+      //               offset: 1,
+      //               color: "rgba(147, 235, 248, .2)", // 100% 处的颜色
+      //             },
+      //           ],
+      //           globalCoord: false, // 缺为 false
+      //         },
+      //         shadowColor: "rgba(128, 217, 248, .3)",
+      //         shadowOffsetX: -2,
+      //         shadowOffsetY: 2,
+      //         shadowBlur: 10,
+      //       },
+      //     },
+      //     {
+      //       data: data2,
+      //       type: "effectScatter",
+      //       coordinateSystem: "geo",
+      //       symbolSize: function (val) {
+      //         return 4;
+      //         // return val[2] / 50;
+      //       },
+      //       legendHoverLink: true,
+      //       showEffectOn: "render",
+      //       rippleEffect: {
+      //         // period: 4,
+      //         scale: 6,
+      //         color: "rgba(255,255,255, 1)",
+      //         brushType: "fill",
+      //       },
+      //       tooltip: {
+      //         show: true,
+      //         formatter: function (params) {
+      //           if (params.data) {
+      //             return params.name + "：" + params.data["value"][2];
+      //           } else {
+      //             return params.name;
+      //           }
+      //         },
+      //         backgroundColor: "rgba(0,0,0,.6)",
+      //         borderColor: "rgba(147, 235, 248, .8)",
+      //         textStyle: {
+      //           color: "#FFF",
+      //         },
+      //       },
+      //       label: {
+      //         formatter: (param) => {
+      //           return param.name.slice(0, 2);
+      //         },
+
+      //         fontSize: 11,
+      //         offset: [0, 2],
+      //         position: "bottom",
+      //         textBorderColor: "#fff",
+      //         textShadowColor: "#000",
+      //         textShadowBlur: 10,
+      //         textBorderWidth: 0,
+      //         color: "#FFF",
+      //         show: true,
+      //       },
+      //       // colorBy: "data",
+      //       itemStyle: {
+      //         color: "rgba(255,255,255,1)",
+      //         borderColor: "rgba(2255,255,255,2)",
+      //         borderWidth: 4,
+      //         shadowColor: "#000",
+      //         shadowBlur: 10,
+      //       },
+      //     },
+      //   ],
+      //    //动画效果
+      //       // animationDuration: 1000,
+      //       // animationEasing: 'linear',
+      //       // animationDurationUpdate: 1000
+      // };
+      var data = 
+      [
+        {
+          name: "库尔勒",
+          value:[86.15528 , 41.76602],
+          type:'green'
+        },
+        {
+          name: '拉萨',
+          value: [91.132212, 29.660361],
+          type: 'red'
+        },
+        {
+          name: '敦煌',
+          value: [94.66159, 40.14211],
+          type: 'green'
+        },
+        {
+          name: '吉林',
+          value: [126.55302, 43.843577	],
+          type: 'yellow'
+        }
+      ];
+    
       let option = {
-        backgroundColor: "rgba(0,0,0,0)",
-        tooltip: {
-          show: false,
-        },
-        legend: {
-          show: false,
-        },
-        visualMap: {
-          left: 20,
-          bottom: 20,
-          pieces: [
-            { gte: 1000, label: "1000个以上" }, // 不指定 max，表示 max 为无限大（Infinity）。
-            { gte: 600, lte: 999, label: "600-999个" },
-            { gte: 200, lte: 599, label: "200-599个" },
-            { gte: 50, lte: 199, label: "49-199个" },
-            { gte: 10, lte: 49, label: "10-49个" },
-            { lte: 9, label: "1-9个" }, // 不指定 min，表示 min 为无限大（-Infinity）。
-          ],
-          inRange: {
-            // 渐变颜色，从小到大
-            color: [
-              "#c3d7df",
-              "#5cb3cc",
-              "#8abcd1",
-              "#66a9c9",
-              "#2f90b9",
-              "#1781b5",
-            ],
-          },
-          textStyle: {
-            color: "#fff",
-          },
-        },
+        backgroundColor: "black",
+        // visualMap: {
+        //   left: 20,
+        //   bottom: 20,
+        //   pieces: ['库尔勒','拉萨','敦煌','吉林'],
+        //   inRange: {
+        //     // 渐变颜色，从小到大
+        //     color: [
+        //       "#c3d7df",
+        //       "#5cb3cc",
+        //       "#8abcd1",
+        //       "#66a9c9",
+        //       "#2f90b9",
+        //       "#1781b5",
+        //     ],
+        //   },
+        //   textStyle: {
+        //     color: "#fff",
+        //   },
+        // },
+        // visualMap: {
+        //   top: 'middle',
+        //   right: 10,
+        //   color: ['red', 'yellow'],
+        //   calculable: true
+        // },
+        // legend: {
+        //   type: 'scroll',
+        //   bottom: 10,
+        //   data: ['第一产业', '第二产业', '第三产业'],
+        // },
         geo: {
-          map: name,
-          roam: false,
-          selectedMode: false, //是否允许选中多个区域
-          zoom: zoom,
-          top: top,
-          // aspectScale: 0.78,
-          show: false,
+          map: "china",
+          aspectScale: 0.8,
+          layoutCenter: ["50%", "50%"],
+          layoutSize: "120%",
+          // roam: true, //是否开启平游或缩放
+          itemStyle: {
+            normal: {
+                // areaColor: {
+                //    // image: `${require("../../assets/image/home/地图.png")}`,
+                //    repeat: `repeat`,
+                //    opacity: 1,
+                // },
+                areaColor: {
+                  type: "linear-gradient",
+                  x: 0,
+                  y: 1200,
+                  x2: 1000,
+                  y2: 0,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "#152E6E", // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "#0673AD", // 50% 处的颜色
+                    },
+                  ],
+                  global: true, // 缺省为 false
+                },
+                shadowColor: "#0f5d9d",
+                shadowOffsetX: 0,
+                shadowOffsetY: 15,
+                opacity: 0.5,
+            },
+            emphasis: {
+                areaColor: "#0f5d9d",
+            },
+          },
+          regions: [
+            {
+              name: "南海诸岛",
+              itemStyle: {
+                areaColor: "rgba(0, 10, 52, 1)",
+                borderColor: "rgba(0, 10, 52, 1)",
+                normal: {
+                opacity: 0,
+                label: {
+                    show: false,
+                    color: "#009cc9",
+                },
+                },
+              },
+              label: {
+                show: false,
+                // color: "#FFFFFF",
+                // fontSize: 12,
+              },
+            },
+          ],
         },
         series: [
           {
-            name: "MAP",
             type: "map",
-            map: name,
-            // aspectScale: 0.78,
-            data: data,
-            // data: [1,100],
-            selectedMode: false, //是否允许选中多个区域
-            zoom: zoom,
-            geoIndex: 1,
-            top: top,
-            tooltip: {
-              show: true,
-              formatter: function (params) {
-                if (params.data) {
-                  return params.name + "：" + params.data["value"];
-                } else {
-                  return params.name;
-                }
-              },
-              backgroundColor: "rgba(0,0,0,.6)",
-              borderColor: "rgba(147, 235, 248, .8)",
-              textStyle: {
-                color: "#FFF",
-              },
+            selectedMode: "multiple",
+            mapType: "china",
+            aspectScale: 0.8,
+            layoutCenter: ["50%", "50%"], //地图位置
+            layoutSize: "120%",
+            zoom: 1, //当前视角的缩放比例
+            // roam: true, //是否开启平游或缩放
+            scaleLimit: {
+              //滚轮缩放的极限控制
+              min: 1,
+              max: 2,
             },
             label: {
               show: false,
-              color: "#000",
-              // position: [-10, 0],
-              formatter: function (val) {
-                // console.log(val)
-                if (val.data !== undefined) {
-                  return val.name.slice(0, 2);
-                } else {
-                  return "";
-                }
-              },
-              rich: {},
+              color: "#FFFFFF",
+              fontSize: 16,
+            },
+            itemStyle: {
+              areaColor: "#0c3653",
+              borderColor: "#1cccff",
+              borderWidth: 1.8
             },
             emphasis: {
+              itemStyle: {
+                areaColor: "#0c3653",
+                show: true,
+              },
+              label: {
+                color: "#fff"
+              },
+            },
+            select: {
               label: {
                 show: false,
+                color: '#FFF',
               },
               itemStyle: {
-                areaColor: "#389BB7",
-                borderWidth: 1,
-              },
+                areaColor: "#0c3653"
+              }
             },
-            itemStyle: {
-              borderColor: "rgba(147, 235, 248, .8)",
-              borderWidth: 1,
-              areaColor: {
-                type: "radial",
-                x: 0.5,
-                y: 0.5,
-                r: 0.8,
-                colorStops: [
-                  {
-                    offset: 0,
-                    color: "rgba(147, 235, 248, 0)", // 0% 处的颜色
-                  },
-                  {
-                    offset: 1,
-                    color: "rgba(147, 235, 248, .2)", // 100% 处的颜色
-                  },
-                ],
-                globalCoord: false, // 缺为 false
-              },
-              shadowColor: "rgba(128, 217, 248, .3)",
-              shadowOffsetX: -2,
-              shadowOffsetY: 2,
-              shadowBlur: 10,
-            },
+            data: data,
           },
           {
-            data: data2,
-            type: "effectScatter",
-            coordinateSystem: "geo",
-            symbolSize: function (val) {
-              return 4;
-              // return val[2] / 50;
-            },
-            legendHoverLink: true,
-            showEffectOn: "render",
-            rippleEffect: {
-              // period: 4,
-              scale: 6,
-              color: "rgba(255,255,255, 1)",
-              brushType: "fill",
-            },
-            tooltip: {
-              show: true,
-              formatter: function (params) {
-                if (params.data) {
-                  return params.name + "：" + params.data["value"][2];
-                } else {
-                  return params.name;
+              name: '监测点',
+              type: 'effectScatter',
+              coordinateSystem: 'geo',//该系列使用的坐标系
+              label: {
+                normal: {
+                  show: true,
+                  formatter: val =>{
+                    return val.name
+                  },
+                  fontSize: 20,
                 }
               },
-              backgroundColor: "rgba(0,0,0,.6)",
-              borderColor: "rgba(147, 235, 248, .8)",
-              textStyle: {
-                color: "#FFF",
+              itemStyle: {
+                color: params => {
+                  return params.data.type;
+                }//标志颜色
               },
-            },
-            label: {
-              formatter: (param) => {
-                return param.name.slice(0, 2);
+              data:data,
+              rippleEffect: {
+                brushType: 'stroke'
               },
-
-              fontSize: 11,
-              offset: [0, 2],
-              position: "bottom",
-              textBorderColor: "#fff",
-              textShadowColor: "#000",
-              textShadowBlur: 10,
-              textBorderWidth: 0,
-              color: "#FFF",
-              show: true,
-            },
-            // colorBy: "data",
-            itemStyle: {
-              color: "rgba(255,255,255,1)",
-              borderColor: "rgba(2255,255,255,2)",
-              borderWidth: 4,
-              shadowColor: "#000",
-              shadowBlur: 10,
-            },
+              hoverAnimation: true,
+              zlevel: 1
           },
+          
         ],
-         //动画效果
-            // animationDuration: 1000,
-            // animationEasing: 'linear',
-            // animationDurationUpdate: 1000
+        legend: {
+          left: 'right',
+          data: ['第一产业', '第二产业', '第三产业'],
+        },
       };
       this.options = option;
     },

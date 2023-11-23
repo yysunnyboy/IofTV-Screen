@@ -6,8 +6,9 @@
  * @FilePath: \web-pc\src\pages\big-screen\view\indexs\left-center.vue
 -->
 <template>
-    <ul class="user_Overview flex" v-if="pageflag">
-        <li class="user_Overview-item" style="color: #00fdfa">
+    <div v-if="pageflag">
+        <ul class="user_Overview flex" >
+        <!-- <li class="user_Overview-item" style="color: #00fdfa">
             <div class="user_Overview_nums allnum ">
                 <dv-digital-flop :config="config" style="width:100%;height:100%;" />
             </div>
@@ -31,8 +32,22 @@
                 <dv-digital-flop :config="laramnumconfig" style="width:100%;height:100%;" />
             </div>
             <p>告警次数</p>
-        </li>
-    </ul>
+        </li> -->
+        <li class="user_Overview-item active"> 西安站</li>
+        <li class="user_Overview-item"> 敦煌站</li>
+        <li class="user_Overview-item"> 库尔勒站</li>
+        <li class="user_Overview-item"> 拉萨站</li>
+        </ul>
+        <div class="content">
+            <dv-border-box-1 class="middle_item">
+                dv-border-box-1
+            </dv-border-box-1>
+            <dv-border-box-1 class="middle_item">
+                dv-border-box-1
+            </dv-border-box-1>
+        </div>
+    </div>
+    
     <Reacquire v-else @onclick="getData" line-height="200px">
         重新获取
     </Reacquire>
@@ -224,6 +239,22 @@ export default {
 
             }
         }
+       
     }
+    .user_Overview-item {
+        color: #FFFFFF;
+        &.active{
+            color:#0072ff 
+        }
+    }
+    
+}
+.content{
+    display: flex;
+}
+.middle_item{
+    width: 50%;
+    height: 120px;
+    // background-color: #afa;
 }
 </style>

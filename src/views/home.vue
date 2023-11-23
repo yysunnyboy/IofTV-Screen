@@ -23,16 +23,18 @@
           <div class="guang"></div>
           <div class="d-flex jc-center">
             <div class="title">
-              <span class="title-text">互联网设备可视化平台</span>
+              <span class="title-text">综合分析平台</span>
             </div>
           </div>
           <div class="timers">
-            {{ dateYear }} {{ dateWeek }} {{ dateDay }}
-            <i
+            <p> 北京时间：{{ dateYear }} {{ dateDay }}</p>
+            <p> UTC时间：{{dateUtc }}</p>
+           
+            <!-- <i
               class="blq-icon-shezhi02"
               style="margin-left: 10px"
               @click="showSetting"
-            ></i>
+            ></i> -->
           </div>
         </div>
         <!-- 头部 e-->
@@ -47,7 +49,7 @@
 </template>
 
 <script>
-import { formatTime } from "../utils/index.js";
+import { formatTime, formatBJTimeToUtcTime } from "../utils/index.js";
 import Setting from "./setting.vue";
 import ScaleScreen from "@/components/scale-screen/scale-screen.vue";
 export default {
@@ -59,6 +61,7 @@ export default {
       dateDay: null,
       dateYear: null,
       dateWeek: null,
+      dateUtc: null,
       weekday: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
     };
   },
@@ -85,6 +88,7 @@ export default {
         this.dateDay = formatTime(new Date(), "HH: mm: ss");
         this.dateYear = formatTime(new Date(), "yyyy-MM-dd");
         this.dateWeek = this.weekday[new Date().getDay()];
+        this.dateUtc = formatBJTimeToUtcTime()
       }, 1000);
     },
     cancelLoading() {
