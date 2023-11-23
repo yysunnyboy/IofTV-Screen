@@ -8,43 +8,26 @@
 <template>
     <div v-if="pageflag">
         <ul class="user_Overview flex" >
-        <!-- <li class="user_Overview-item" style="color: #00fdfa">
-            <div class="user_Overview_nums allnum ">
-                <dv-digital-flop :config="config" style="width:100%;height:100%;" />
-            </div>
-            <p>总设备数</p>
-        </li>
-        <li class="user_Overview-item" style="color: #07f7a8">
-            <div class="user_Overview_nums online">
-                <dv-digital-flop :config="onlineconfig" style="width:100%;height:100%;" />
-            </div>
-            <p>在线数</p>
-        </li>
-        <li class="user_Overview-item" style="color: #e3b337">
-            <div class="user_Overview_nums offline">
-                <dv-digital-flop :config="offlineconfig" style="width:100%;height:100%;" />
-
-            </div>
-            <p>掉线数</p>
-        </li>
-        <li class="user_Overview-item" style="color: #f5023d">
-            <div class="user_Overview_nums laramnum">
-                <dv-digital-flop :config="laramnumconfig" style="width:100%;height:100%;" />
-            </div>
-            <p>告警次数</p>
-        </li> -->
-        <li class="user_Overview-item active"> 西安站</li>
-        <li class="user_Overview-item"> 敦煌站</li>
-        <li class="user_Overview-item"> 库尔勒站</li>
-        <li class="user_Overview-item"> 拉萨站</li>
+            <li class="user_Overview-item active"> 西安站</li>
+            <li class="user_Overview-item"> 敦煌站</li>
+            <li class="user_Overview-item"> 库尔勒站</li>
+            <li class="user_Overview-item"> 拉萨站</li>
         </ul>
         <div class="content">
-            <dv-border-box-1 class="middle_item">
-                dv-border-box-1
-            </dv-border-box-1>
-            <dv-border-box-1 class="middle_item">
-                dv-border-box-1
-            </dv-border-box-1>
+            <dv-border-box-12 class="middle_item ">
+                <Echart id="leftPieMap" :options="options" ref="leftPieMap" />
+            </dv-border-box-12>
+            <dv-border-box-12 class="middle_item width">
+                <p class="right_text">
+                    增强型罗兰授时监测接收机01-西安
+                </p>
+                <p class="right_text_sec">
+                   授时偏差统计值(RPS)
+                   <span class="inner_text">0.002804</span>
+                </p>
+                    
+              
+            </dv-border-box-12>
         </div>
     </div>
     
@@ -61,7 +44,42 @@ let style = {
 export default {
     data() {
         return {
-            options: {},
+            options: {
+                title: {
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                color: ['#73c0de', '#ee6666'],
+                legend: {
+                    right: 'top',
+                    data: ['正常', '异常']
+                },
+                label: {
+                    color: "#FFFFFF",
+                    fontSize: 12,
+                },
+                series: [
+                    {
+                    type: 'pie',
+                    radius: '65%',
+                    center: ['50%', '50%'],
+                    selectedMode: 'single',
+                    data: [
+                        { value: 1000, name: '正常' },
+                        { value: 0, name: '异常' }
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                    }
+                ]
+            },
             userOverview: {
                 alarmNum: 0,
                 offlineNum: 0,
@@ -178,7 +196,7 @@ export default {
 .user_Overview {
     li {
         flex: 1;
-
+        font-size: 26px;
         p {
             text-align: center;
             height: 16px;
@@ -253,8 +271,19 @@ export default {
     display: flex;
 }
 .middle_item{
-    width: 50%;
+    width: 40%;
     height: 120px;
     // background-color: #afa;
+    &.width{
+        width: 60%;
+    }
+    .right_text{
+        font-size: 20px;
+        height: 30px;
+        line-height: 30px;
+    }
+    .right_text_sec{
+        
+    }
 }
 </style>

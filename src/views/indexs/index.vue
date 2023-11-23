@@ -28,9 +28,10 @@
     </div>
     <div class="contetn_center">
       <CenterMap class="contetn_center_top" />
-      <ItemWrap class="contetn_center-bottom" title="安装计划">
+      <!-- <ItemWrap class="contetn_center-bottom" title="安装计划">
         <CenterBottom />
-      </ItemWrap>
+      </ItemWrap> -->
+      <CenterBottom class="contetn_center-bottom" />
     </div>
     <div class="contetn_right">
       <ItemWrap
@@ -39,12 +40,8 @@
       >
         <RightTop />
       </ItemWrap>
-      <ItemWrap
-        class="contetn_left-bottom contetn_lr-item"
-        title="报警排名(TOP8)"
-        style="padding: 0 10px 16px 10px"
-      >
-        <RightCenter />
+      <ItemWrap class="contetn_left-center contetn_lr-item" title="工况监控">
+        <RightGongKuang />
       </ItemWrap>
       <ItemWrap
         class="contetn_left-bottom contetn_lr-item"
@@ -64,6 +61,7 @@ import CenterMap from "./center-map.vue";
 import CenterBottom from "./center-bottom.vue";
 import RightTop from "./right-top.vue";
 import RightCenter from "./right-center.vue";
+import RightGongKuang from "./right-gongkuang.vue";
 import RightBottom from "./right-bottom.vue";
 
 export default {
@@ -76,6 +74,7 @@ export default {
     RightCenter,
     RightBottom,
     CenterBottom,
+    RightGongKuang
   },
   data() {
     return {
@@ -101,7 +100,7 @@ export default {
 .contents {
   .contetn_left,
   .contetn_right {
-    width: 540px;
+    width: 600px;
     box-sizing: border-box;
     // padding: 16px 0;
   }
@@ -127,7 +126,8 @@ export default {
   }
 
   .contetn_center-bottom {
-    height: 315px;
+    height: 440px;
+    // flex: 1;
   }
 
   //左边 右边 结构一样

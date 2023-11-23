@@ -1,10 +1,56 @@
 <template>
   <div class="center_bottom">
-    <Echart
+    <!-- <Echart
       :options="options"
       id="bottomLeftChart"
       class="echarts_bottom"
-    ></Echart>
+    ></Echart> -->
+    <div class="item">
+      <div class="left">
+        <p class="point_title mgb5">西安站</p>
+        <p class="point_title_sub mgb5">线路展示</p>
+        <p class="point_title_third mgb5">线路展示</p>
+        <p class="point_title_third mgb5">线路展示</p>
+      </div>
+      <div class="right">
+        <img  class="img_item" object-fit="cover" src="../../assets/img/001.png" alt="">
+      </div>
+    </div>
+    <div class="item">
+      <div class="right">
+        <img  class="img_item" src="../../assets/img/002.png" alt="">
+      </div>
+      <div class="left">
+        <p class="point_title mgb5">库尔勒站</p>
+        <p class="point_title_sub mgb5">线路展示</p>
+        <p class="point_title_third mgb5">线路展示</p>
+        <p class="point_title_third mgb5">线路展示</p>
+      </div>
+     
+    </div>
+    <div class="item">
+      <div class="left">
+        <p class="point_title mgb5">敦煌站</p>
+        <p class="point_title_sub mgb5">线路展示</p>
+        <p class="point_title_third mgb5">线路展示</p>
+        <p class="point_title_third mgb5">线路展示</p>
+      </div>
+      <div class="right">
+        <img  class="img_item"  src="../../assets/img/003.png" alt="">
+      </div>
+    </div>
+    <div class="item">
+      <div class="right">
+        <img  class="img_item" src="../../assets/img/004.png" alt="">
+      </div>
+      <div class="left">
+        <p class="point_title mgb5">拉萨站</p>
+        <p class="point_title_sub mgb5">线路展示</p>
+        <p class="point_title_third mgb5">线路展示</p>
+        <p class="point_title_third mgb5">线路展示</p>
+      </div>
+     
+    </div>
   </div>
 </template>
 
@@ -177,10 +223,49 @@ export default {
 .center_bottom {
   width: 100%;
   height: 100%;
+  // display: flex;
 
-  .echarts_bottom {
-    width: 100%;
-    height: 100%;
+  // .echarts_bottom {
+  //   width: 100%;
+  //   height: 100%;
+  // }
+  .item{
+    width: 50%;
+    height: 50%;
+    float: left;
+    display: flex;
+    .left{
+      width: 25%;
+      height: 100%;
+      .mgb5{
+        margin-bottom: 5px;
+      }
+      .point_title{
+        font-size: 20px;
+        height: 22px;
+        line-height: 22px;
+      }
+      .point_title_sub{
+        font-size: 18px;
+        height: 20px;
+        line-height: 20px;
+      }
+      .point_title_third{
+        font-size: 16px;
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+    .right{
+      // width: 80%;
+      flex: 1;
+      height: 100%;
+      .img_item{
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+      }
+    }
   }
 }
 </style>

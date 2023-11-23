@@ -99,189 +99,7 @@ export default {
       this.init(name, mydata, newData);
     },
     init(name, data, data2) {
-      // console.log(data2);
-      // let top = 45;
-      // let zoom = 1.05;
-      // let option = {
-      //   backgroundColor: "rgba(0,0,0,0)",
-      //   tooltip: {
-      //     show: false,
-      //   },
-      //   legend: {
-      //     show: false,
-      //   },
-      //   visualMap: {
-      //     left: 20,
-      //     bottom: 20,
-      //     pieces: [
-      //       { gte: 1000, label: "1000个以上" }, // 不指定 max，表示 max 为无限大（Infinity）。
-      //       { gte: 600, lte: 999, label: "600-999个" },
-      //       { gte: 200, lte: 599, label: "200-599个" },
-      //       { gte: 50, lte: 199, label: "49-199个" },
-      //       { gte: 10, lte: 49, label: "10-49个" },
-      //       { lte: 9, label: "1-9个" }, // 不指定 min，表示 min 为无限大（-Infinity）。
-      //     ],
-      //     inRange: {
-      //       // 渐变颜色，从小到大
-      //       color: [
-      //         "#c3d7df",
-      //         "#5cb3cc",
-      //         "#8abcd1",
-      //         "#66a9c9",
-      //         "#2f90b9",
-      //         "#1781b5",
-      //       ],
-      //     },
-      //     textStyle: {
-      //       color: "#fff",
-      //     },
-      //   },
-      //   geo: {
-      //     map: name,
-      //     roam: false,
-      //     selectedMode: false, //是否允许选中多个区域
-      //     zoom: zoom,
-      //     top: top,
-      //     // aspectScale: 0.78,
-      //     show: false,
-      //   },
-      //   series: [
-      //     {
-      //       name: "MAP",
-      //       type: "map",
-      //       map: name,
-      //       // aspectScale: 0.78,
-      //       data: data,
-      //       // data: [1,100],
-      //       selectedMode: false, //是否允许选中多个区域
-      //       zoom: zoom,
-      //       geoIndex: 1,
-      //       top: top,
-      //       tooltip: {
-      //         show: true,
-      //         formatter: function (params) {
-      //           if (params.data) {
-      //             return params.name + "：" + params.data["value"];
-      //           } else {
-      //             return params.name;
-      //           }
-      //         },
-      //         backgroundColor: "rgba(0,0,0,.6)",
-      //         borderColor: "rgba(147, 235, 248, .8)",
-      //         textStyle: {
-      //           color: "#FFF",
-      //         },
-      //       },
-      //       label: {
-      //         show: false,
-      //         color: "#000",
-      //         // position: [-10, 0],
-      //         formatter: function (val) {
-      //           // console.log(val)
-      //           if (val.data !== undefined) {
-      //             return val.name.slice(0, 2);
-      //           } else {
-      //             return "";
-      //           }
-      //         },
-      //         rich: {},
-      //       },
-      //       emphasis: {
-      //         label: {
-      //           show: false,
-      //         },
-      //         itemStyle: {
-      //           areaColor: "#389BB7",
-      //           borderWidth: 1,
-      //         },
-      //       },
-      //       itemStyle: {
-      //         borderColor: "rgba(147, 235, 248, .8)",
-      //         borderWidth: 1,
-      //         areaColor: {
-      //           type: "radial",
-      //           x: 0.5,
-      //           y: 0.5,
-      //           r: 0.8,
-      //           colorStops: [
-      //             {
-      //               offset: 0,
-      //               color: "rgba(147, 235, 248, 0)", // 0% 处的颜色
-      //             },
-      //             {
-      //               offset: 1,
-      //               color: "rgba(147, 235, 248, .2)", // 100% 处的颜色
-      //             },
-      //           ],
-      //           globalCoord: false, // 缺为 false
-      //         },
-      //         shadowColor: "rgba(128, 217, 248, .3)",
-      //         shadowOffsetX: -2,
-      //         shadowOffsetY: 2,
-      //         shadowBlur: 10,
-      //       },
-      //     },
-      //     {
-      //       data: data2,
-      //       type: "effectScatter",
-      //       coordinateSystem: "geo",
-      //       symbolSize: function (val) {
-      //         return 4;
-      //         // return val[2] / 50;
-      //       },
-      //       legendHoverLink: true,
-      //       showEffectOn: "render",
-      //       rippleEffect: {
-      //         // period: 4,
-      //         scale: 6,
-      //         color: "rgba(255,255,255, 1)",
-      //         brushType: "fill",
-      //       },
-      //       tooltip: {
-      //         show: true,
-      //         formatter: function (params) {
-      //           if (params.data) {
-      //             return params.name + "：" + params.data["value"][2];
-      //           } else {
-      //             return params.name;
-      //           }
-      //         },
-      //         backgroundColor: "rgba(0,0,0,.6)",
-      //         borderColor: "rgba(147, 235, 248, .8)",
-      //         textStyle: {
-      //           color: "#FFF",
-      //         },
-      //       },
-      //       label: {
-      //         formatter: (param) => {
-      //           return param.name.slice(0, 2);
-      //         },
-
-      //         fontSize: 11,
-      //         offset: [0, 2],
-      //         position: "bottom",
-      //         textBorderColor: "#fff",
-      //         textShadowColor: "#000",
-      //         textShadowBlur: 10,
-      //         textBorderWidth: 0,
-      //         color: "#FFF",
-      //         show: true,
-      //       },
-      //       // colorBy: "data",
-      //       itemStyle: {
-      //         color: "rgba(255,255,255,1)",
-      //         borderColor: "rgba(2255,255,255,2)",
-      //         borderWidth: 4,
-      //         shadowColor: "#000",
-      //         shadowBlur: 10,
-      //       },
-      //     },
-      //   ],
-      //    //动画效果
-      //       // animationDuration: 1000,
-      //       // animationEasing: 'linear',
-      //       // animationDurationUpdate: 1000
-      // };
+      
       var data = 
       [
         {
@@ -292,7 +110,7 @@ export default {
         {
           name: '拉萨',
           value: [91.132212, 29.660361],
-          type: 'red'
+          type: 'green'
         },
         {
           name: '敦煌',
@@ -300,44 +118,14 @@ export default {
           type: 'green'
         },
         {
-          name: '吉林',
-          value: [126.55302, 43.843577	],
-          type: 'yellow'
+          name: '西安',
+          value: [108.948024,34.263161],
+          type: 'green'
         }
       ];
     
       let option = {
         backgroundColor: "black",
-        // visualMap: {
-        //   left: 20,
-        //   bottom: 20,
-        //   pieces: ['库尔勒','拉萨','敦煌','吉林'],
-        //   inRange: {
-        //     // 渐变颜色，从小到大
-        //     color: [
-        //       "#c3d7df",
-        //       "#5cb3cc",
-        //       "#8abcd1",
-        //       "#66a9c9",
-        //       "#2f90b9",
-        //       "#1781b5",
-        //     ],
-        //   },
-        //   textStyle: {
-        //     color: "#fff",
-        //   },
-        // },
-        // visualMap: {
-        //   top: 'middle',
-        //   right: 10,
-        //   color: ['red', 'yellow'],
-        //   calculable: true
-        // },
-        // legend: {
-        //   type: 'scroll',
-        //   bottom: 10,
-        //   data: ['第一产业', '第二产业', '第三产业'],
-        // },
         geo: {
           map: "china",
           aspectScale: 0.8,
@@ -346,11 +134,6 @@ export default {
           // roam: true, //是否开启平游或缩放
           itemStyle: {
             normal: {
-                // areaColor: {
-                //    // image: `${require("../../assets/image/home/地图.png")}`,
-                //    repeat: `repeat`,
-                //    opacity: 1,
-                // },
                 areaColor: {
                   type: "linear-gradient",
                   x: 0,
@@ -458,6 +241,14 @@ export default {
                   fontSize: 20,
                 }
               },
+              rippleEffect: {
+                number: 15, // 波纹数量
+                period: 1, // 动画周期 数值越大，波动越慢
+                scale: 5, // 动画中波纹的最大缩放比例
+                brushType: 'stroke' // 波纹的绘制方式 stroke fill
+              },
+              symbol: 'circle',
+              symbolSize: 30,
               itemStyle: {
                 color: params => {
                   return params.data.type;
@@ -546,7 +337,7 @@ export default {
   }
 
   .mapwrap {
-    height: 548px;
+    height: 450px;
     width: 100%;
     // padding: 0 0 10px 0;
     box-sizing: border-box;
