@@ -136,9 +136,9 @@ export default {
         backgroundColor: "transparent",
         geo: {
           map: "china",
-          aspectScale: 1.1,
+          aspectScale: 1,
           layoutCenter: ["50%", "50%"],
-          layoutSize: "120%",
+          layoutSize: "100%",
           // roam: true, //是否开启平游或缩放
           itemStyle: {
             normal: {
@@ -162,7 +162,7 @@ export default {
                 },
                 shadowColor: "#0f5d9d",
                 shadowOffsetX: 0,
-                shadowOffsetY: 15,
+                shadowOffsetY: 0,
                 opacity: 0.5,
             },
             emphasis: {
