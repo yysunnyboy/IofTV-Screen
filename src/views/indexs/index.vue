@@ -15,12 +15,12 @@
       <ItemWrap class="contetn_left-top contetn_lr-item" title="站点总览">
         <LeftTop/>
       </ItemWrap>
-      <ItemWrap class="contetn_left-center contetn_lr-item" title="用户总览">
+      <!-- <ItemWrap class="contetn_left-center contetn_lr-item" title="监测数据">
         <LeftCenter />
-      </ItemWrap>
+      </ItemWrap> -->
       <ItemWrap
         class="contetn_left-bottom contetn_lr-item"
-        title="设备提醒"
+        title="设备总览"
         style="padding: 0 10px 16px 10px"
       >
         <LeftBottom />
@@ -28,9 +28,6 @@
     </div>
     <div class="contetn_center">
       <CenterMap class="contetn_center_top" />
-      <!-- <ItemWrap class="contetn_center-bottom" title="安装计划">
-        <CenterBottom />
-      </ItemWrap> -->
       <CenterBottom class="contetn_center-bottom" />
     </div>
     <div class="contetn_right">
@@ -45,7 +42,7 @@
       </ItemWrap>
       <ItemWrap
         class="contetn_left-bottom contetn_lr-item"
-        title="数据统计图 "
+        title="报警统计 "
       >
         <RightBottom />
       </ItemWrap>

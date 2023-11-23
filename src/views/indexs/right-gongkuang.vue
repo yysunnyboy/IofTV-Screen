@@ -226,7 +226,9 @@ export default {
           text: '监测站工况及异常数据占比',
           // subtext: 'Fake Data',
           left: 'left',
-          color: '#fff'
+          textStyle:{
+            color:'#fff',
+          }
         },
         tooltip: {
           trigger: 'item'
@@ -235,6 +237,9 @@ export default {
           orient: 'vertical',
           left: '20px',
           bottom: '20px',
+          textStyle:{
+            color:'#fff',
+          }
         },
         series: [
           {

@@ -32,20 +32,21 @@
               </div>
             </div>
 
-              <span
+              <!-- <span
                 class="types doudong"
                 :class="{
                   typeRed: item.onlineState == 0,
                   typeGreen: item.onlineState == 1,
                 }"
                 >{{ item.onlineState == 1 ? "上线" : "下线" }}</span
-              >
+              > -->
 
             <div class="info addresswrap">
-              <span class="labels">地址：</span>
+              <span class="labels">设备名称：</span>
               <span class="contents ciyao" style="font-size: 12px">
-                {{ addressHandle(item) }}</span
-              >
+                <!-- {{ addressHandle(item) }} -->
+                {{ item.deviceName }}
+                </span>
             </div>
           </div>
         </li>
@@ -70,7 +71,7 @@ export default {
       defaultOption: {
         ...this.$store.state.setting.defaultOption,
         singleHeight: 240,
-        limitMoveNum: 5, 
+        limitMoveNum: 2, 
         step: 0,
       },
     };
@@ -108,10 +109,92 @@ export default {
       this.pageflag = true;
       // this.pageflag =false
       currentGET("big3", { limitNum: 20 }).then((res) => {
-        console.log("设备提醒", res);
+        console.log("设备提醒", JSON.stringify(res));
         if (res.success) {
           this.countUserNumData = res.data;
-          this.list = res.data.list;
+          // this.list = res.data.list;
+          this.list = [
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-11-20 20:06:15",
+              "gatewayno":10000,
+              "deviceName": "增强罗兰监测接收机"
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-10-29 21:10:23",
+              "gatewayno":10001,
+              "deviceName": "频率比对测量系统"
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-10-26 08:15:13",
+              "gatewayno":10003,
+              "deviceName": "频率分配设备"
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-10-27 06:14:35",
+              "gatewayno":10004,
+              "deviceName": "脉冲分配设备"
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-10-17 11:24:10",
+              "gatewayno":10005,
+              "deviceName": "ASF测量系统"
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-10-19 12:45:07",
+              "gatewayno":10006,
+              "deviceName": "eLORAN发播信号"
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-11-19 13:46:14",
+              "gatewayno":10007,
+              "deviceName": "监测接收机"
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-11-14 20:35:47",
+              "gatewayno":10008,
+              "deviceName": "网络时间服务器"
+            },
+          ]
           let timer = setTimeout(() => {
             clearTimeout(timer);
             this.defaultOption.step =

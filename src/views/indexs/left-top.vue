@@ -17,7 +17,8 @@
             <dv-border-box-12 class="middle_item ">
                 <Echart id="leftPieMap" :options="options" ref="leftPieMap" />
             </dv-border-box-12>
-            <dv-border-box-12 class="middle_item width">
+
+            <!-- <dv-border-box-12 class="middle_item width">
                 <p class="right_text">
                     增强型罗兰授时监测接收机01-西安
                 </p>
@@ -25,9 +26,7 @@
                    授时偏差统计值(RPS)
                    <span class="inner_text">0.002804</span>
                 </p>
-                    
-              
-            </dv-border-box-12>
+            </dv-border-box-12> -->
         </div>
     </div>
     
@@ -44,39 +43,55 @@ let style = {
 export default {
     data() {
         return {
+            // options: {
+            //     title: {
+            //         left: 'center'
+            //     },
+            //     tooltip: {
+            //         trigger: 'item'
+            //     },
+            //     color: ['#73c0de', '#ee6666'],
+            //     legend: {
+            //         right: 'top',
+            //         data: ['正常', '异常']
+            //     },
+            //     label: {
+            //         color: "#FFFFFF",
+            //         fontSize: 12,
+            //     },
+            //     series: [
+            //         {
+            //         type: 'pie',
+            //         radius: '65%',
+            //         center: ['50%', '50%'],
+            //         selectedMode: 'single',
+            //         data: [
+            //             { value: 1000, name: '正常' },
+            //             { value: 0, name: '异常' }
+            //         ],
+            //         emphasis: {
+            //             itemStyle: {
+            //             shadowBlur: 10,
+            //             shadowOffsetX: 0,
+            //             shadowColor: 'rgba(0, 0, 0, 0.5)'
+            //             }
+            //         }
+            //         }
+            //     ]
+            // },
             options: {
-                title: {
-                    left: 'center'
+                xAxis: {
+                    type: 'category',
+                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                 },
-                tooltip: {
-                    trigger: 'item'
-                },
-                color: ['#73c0de', '#ee6666'],
-                legend: {
-                    right: 'top',
-                    data: ['正常', '异常']
-                },
-                label: {
-                    color: "#FFFFFF",
-                    fontSize: 12,
+                yAxis: {
+                    type: 'value'
                 },
                 series: [
                     {
-                    type: 'pie',
-                    radius: '65%',
-                    center: ['50%', '50%'],
-                    selectedMode: 'single',
-                    data: [
-                        { value: 1000, name: '正常' },
-                        { value: 0, name: '异常' }
-                    ],
-                    emphasis: {
-                        itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
+                    data: [820, 932, 901, 934, 1290, 1330, 1320],
+                    type: 'line',
+                    smooth: true
                     }
                 ]
             },
@@ -196,7 +211,7 @@ export default {
 .user_Overview {
     li {
         flex: 1;
-        font-size: 26px;
+        font-size: 20px;
         p {
             text-align: center;
             height: 16px;
@@ -271,8 +286,8 @@ export default {
     display: flex;
 }
 .middle_item{
-    width: 40%;
-    height: 120px;
+    width: 90%;
+    height: 260px;
     // background-color: #afa;
     &.width{
         width: 60%;
@@ -283,7 +298,7 @@ export default {
         line-height: 30px;
     }
     .right_text_sec{
-        
+
     }
 }
 </style>

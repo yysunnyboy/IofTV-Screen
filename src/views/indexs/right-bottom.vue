@@ -18,34 +18,29 @@
                 <span class="labels ">设备ID：</span>
                 <span class="contents zhuyao"> {{ item.gatewayno }}</span>
               </div>
-              <div class="info">
+              <!-- <div class="info">
                 <span class="labels">型号：</span>
                 <span class="contents "> {{ item.terminalno }}</span>
               </div>
               <div class="info">
                 <span class="labels">告警值：</span>
                 <span class="contents warning"> {{ item.alertvalue | montionFilter }}</span>
-              </div>
-            </div>
-
-
-            <div class="flex">
-
-              <div class="info">
-                <span class="labels"> 地址：</span>
-                <span class="contents ciyao" style="font-size:12px"> {{ item.provinceName }}/{{ item.cityName }}/{{ item.countyName }}</span>
-              </div>
+              </div> -->
               <div class="info time">
                 <span class="labels">时间：</span>
                 <span class="contents" style="font-size:12px"> {{ item.createtime }}</span>
               </div>
-
             </div>
             <div class="flex">
-
+              <!-- <div class="info">
+                <span class="labels"> 地址：</span>
+                <span class="contents ciyao" style="font-size:12px"> {{ item.provinceName }}/{{ item.cityName }}/{{ item.countyName }}</span>
+              </div> -->
+            </div>
+            <div class="flex">
               <div class="info">
                 <span class="labels">报警内容：</span>
-                <span class="contents ciyao" :class="{ warning: item.alertdetail }"> {{ item.alertdetail || '无'
+                <span class="contents ciyao" :class="{ warning: item.alertdetail }"> {{ item.warnText || '无'
                 }}</span>
               </div>
             </div>
@@ -71,7 +66,7 @@ export default {
       pageflag: true,
       defaultOption: {
         ...this.$store.state.setting.defaultOption,
-        limitMoveNum: 3, 
+        limitMoveNum: 2, 
         singleHeight: 250, 
         step:0,
       }
@@ -101,10 +96,111 @@ export default {
       currentGET('big5', { limitNum: 50 }).then(res => {
         console.log('实时预警', res);
         if (res.success) {
-          this.list = res.data.list
+          // this.list = res.data.list
+          this.list =  [
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-11-20 20:06:15",
+              "gatewayno":10000,
+              "deviceName": "增强罗兰监测接收机",
+              "warnText":"增强罗兰监测接收机报警",
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-10-29 21:10:23",
+              "gatewayno":10001,
+              "deviceName": "频率比对测量系统",
+              "warnText":"频率比对测量系统报警",
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-10-26 08:15:13",
+              "gatewayno":10003,
+              "deviceName": "频率分配设备",
+              "warnText":"频率分配设备报警",
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-10-27 06:14:35",
+              "gatewayno":10004,
+              "deviceName": "脉冲分配设备",
+              "warnText":"脉冲分配设备报警",
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-10-19 12:45:07",
+              "gatewayno":10006,
+              "deviceName": "eLORAN发播信号",
+              "warnText":"eLORAN发播信号报警",
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-11-19 13:46:14",
+              "gatewayno":10007,
+              "deviceName": "监测接收机",
+              "warnText":"监测接收机报警",
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-10-17 11:24:10",
+              "gatewayno":10005,
+              "deviceName": "ASF测量系统",
+              "warnText":"ASF测量系统报警",
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-11-14 20:35:47",
+              "gatewayno":10008,
+              "deviceName": "网络时间服务器",
+              "warnText":"网络时间服务器报警",
+            },
+            {
+              "provinceName":"吉林省",
+              "cityName":"天津市",
+              "countyName":"仁爱乡",
+              "deviceId":"6c512d754bbcd6d7cd86abce0e0cac58",
+              "onlineState":0,
+              "createTime":"2023-11-14 20:35:47",
+              "gatewayno":10009,
+              "deviceName": "电源upS",
+              "warnText":"电源upS报警",
+            },
+          ]
           let timer = setTimeout(() => {
               clearTimeout(timer)
-              this.defaultOption.step=this.$store.state.setting.defaultOption.step
+              this.defaultOption.step= this.$store.state.setting.defaultOption.step
           }, this.$store.state.setting.defaultOption.waitTime);
         } else {
           this.pageflag = false

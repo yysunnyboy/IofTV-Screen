@@ -25,8 +25,8 @@ export default {
         totalNum: 0
       },
       pageflag: true,
-      timer: null
-    };
+      timer: null,
+    }
   },
   created() {
     this.getData()
@@ -228,4 +228,8 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+  .container{
+    width: 90%;
+    height: 90%;
+  }
 </style>
