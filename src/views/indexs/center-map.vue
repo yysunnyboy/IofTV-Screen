@@ -163,7 +163,9 @@ export default {
                 shadowColor: "#0f5d9d",
                 shadowOffsetX: 0,
                 shadowOffsetY: 0,
-                opacity: 0.5,
+                opacity: 0.8,
+                borderWidth: 2,//边际线大小
+                borderColor:'#00ffff',//边界线颜色
             },
             emphasis: {
               areaColor: "#0f5d9d",
@@ -245,17 +247,17 @@ export default {
                   formatter: val =>{
                     return val.name
                   },
-                  fontSize: 20,
+                  fontSize: 12,
                 }
               },
               rippleEffect: {
-                number: 15, // 波纹数量
+                number: 10, // 波纹数量
                 period: 1, // 动画周期 数值越大，波动越慢
-                scale: 5, // 动画中波纹的最大缩放比例
+                scale: 2, // 动画中波纹的最大缩放比例
                 brushType: 'stroke' // 波纹的绘制方式 stroke fill
               },
               symbol: 'circle',
-              symbolSize: 30,
+              symbolSize: 20,
               itemStyle: {
                 color: params => {
                   return params.data.type;

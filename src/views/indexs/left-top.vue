@@ -80,6 +80,14 @@ export default {
             //     ]
             // },
             options: {
+                title: {
+                    left: 'center',
+                    text: '授时偏差',
+                    textStyle: {
+                        color: "#fff",
+                        fontSize: '16px',
+                    }
+                },
                 xAxis: {
                     type: 'category',
                     data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -89,7 +97,7 @@ export default {
                 },
                 series: [
                     {
-                    data: [820, 932, 901, 934, 1290, 1330, 1320],
+                    data: [70, 30, 80, 120, 90, 140, 190],
                     type: 'line',
                     smooth: true
                     }

@@ -15,9 +15,14 @@
       <ItemWrap class="contetn_left-top contetn_lr-item" title="站点总览">
         <LeftTop/>
       </ItemWrap>
-      <!-- <ItemWrap class="contetn_left-center contetn_lr-item" title="监测数据">
-        <LeftCenter />
+      <!-- <ItemWrap class="contetn_left-center contetn_lr-item" title="监视区域">
+        
       </ItemWrap> -->
+      <CenterBottom class="contetn_center-bottom" />
+      
+    </div>
+    <div class="contetn_center">
+      <CenterMap class="contetn_center_top" />
       <ItemWrap
         class="contetn_left-bottom contetn_lr-item"
         title="设备总览"
@@ -26,10 +31,6 @@
         <LeftBottom />
       </ItemWrap>
     </div>
-    <div class="contetn_center">
-      <CenterMap class="contetn_center_top" />
-      <CenterBottom class="contetn_center-bottom" />
-    </div>
     <div class="contetn_right">
       <ItemWrap
         class="contetn_left-bottom contetn_lr-item"
@@ -37,15 +38,16 @@
       >
         <RightTop />
       </ItemWrap>
-      <ItemWrap class="contetn_left-center contetn_lr-item" title="工况监控">
-        <RightGongKuang />
-      </ItemWrap>
       <ItemWrap
         class="contetn_left-bottom contetn_lr-item"
         title="报警统计 "
       >
         <RightBottom />
       </ItemWrap>
+      <ItemWrap class="contetn_left-center contetn_lr-item" title="工况监控">
+        <RightGongKuang />
+      </ItemWrap>
+      
     </div>
   </div>
 </template>

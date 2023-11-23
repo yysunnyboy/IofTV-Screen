@@ -22,18 +22,18 @@
       </div>
       <div class="left">
         <p class="point_title mgb5">库尔勒站</p>
-        <p class="point_title_sub mgb5">线路展示</p>
-        <p class="point_title_third mgb5">线路展示</p>
-        <p class="point_title_third mgb5">线路展示</p>
+        <p class="point_title_third mgb5">机房</p>
+        <p class="point_title_third mgb5">控制室</p>
+        <p class="point_title_third mgb5">室外天线</p>
       </div>
      
     </div>
     <div class="item">
       <div class="left">
         <p class="point_title mgb5">敦煌站</p>
-        <p class="point_title_sub mgb5">线路展示</p>
-        <p class="point_title_third mgb5">线路展示</p>
-        <p class="point_title_third mgb5">线路展示</p>
+        <p class="point_title_third mgb5">机房</p>
+        <p class="point_title_third mgb5">控制室</p>
+        <p class="point_title_third mgb5">室外天线</p>
       </div>
       <div class="right">
         <img  class="img_item"  src="../../assets/img/003.png" alt="">
@@ -45,9 +45,9 @@
       </div>
       <div class="left">
         <p class="point_title mgb5">拉萨站</p>
-        <p class="point_title_sub mgb5">线路展示</p>
-        <p class="point_title_third mgb5">线路展示</p>
-        <p class="point_title_third mgb5">线路展示</p>
+        <p class="point_title_third mgb5">机房</p>
+        <p class="point_title_third mgb5">控制室</p>
+        <p class="point_title_third mgb5">室外天线</p>
       </div>
      
     </div>
@@ -235,7 +235,7 @@ export default {
     float: left;
     display: flex;
     .left{
-      width: 25%;
+      width: 30%;
       height: 100%;
       .mgb5{
         margin-bottom: 5px;
