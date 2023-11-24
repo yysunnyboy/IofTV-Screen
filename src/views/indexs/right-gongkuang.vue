@@ -226,8 +226,10 @@ export default {
           text: '监测站工况及异常数据占比',
           // subtext: 'Fake Data',
           left: 'left',
+          top: '10px',
           textStyle:{
             color:'#fff',
+            fontSize: '14px'
           }
         },
         tooltip: {

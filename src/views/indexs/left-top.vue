@@ -82,10 +82,11 @@ export default {
             options: {
                 title: {
                     left: 'center',
+                    top: '10px',
                     text: '授时偏差',
                     textStyle: {
                         color: "#fff",
-                        fontSize: '16px',
+                        fontSize: '14px',
                     }
                 },
                 xAxis: {
@@ -217,9 +218,10 @@ export default {
 </script>
 <style lang='scss' scoped>
 .user_Overview {
+    margin-top: 10px;
     li {
         flex: 1;
-        font-size: 20px;
+        font-size: 16px;
         p {
             text-align: center;
             height: 16px;

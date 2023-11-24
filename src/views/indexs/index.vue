@@ -15,10 +15,10 @@
       <ItemWrap class="contetn_left-top contetn_lr-item" title="站点总览">
         <LeftTop/>
       </ItemWrap>
-      <!-- <ItemWrap class="contetn_left-center contetn_lr-item" title="监视区域">
-        
-      </ItemWrap> -->
-      <CenterBottom class="contetn_center-bottom" />
+      <ItemWrap class="contetn_left-center contetn_lr-item" title="监视区域">
+         <CenterBottom class="contetn_center-bottom" />
+      </ItemWrap>
+     
       
     </div>
     <div class="contetn_center">
@@ -125,7 +125,7 @@ export default {
   }
 
   .contetn_center-bottom {
-    height: 440px;
+    // height: 500px;
     // flex: 1;
   }
 
