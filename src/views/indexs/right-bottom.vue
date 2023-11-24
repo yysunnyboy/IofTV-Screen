@@ -195,7 +195,7 @@ export default {
               "createTime":"2023-11-14 20:35:47",
               "gatewayno":10009,
               "deviceName": "电源upS",
-              "warnText":"电源upS报警",
+              "warnText":"电源UPS报警",
             },
           ]
           let timer = setTimeout(() => {
