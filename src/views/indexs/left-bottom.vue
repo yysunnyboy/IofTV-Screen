@@ -122,7 +122,7 @@ export default {
               "onlineState":0,
               "createTime":"2023-11-20 20:06:15",
               "gatewayno":10000,
-              "deviceName": "增强罗兰监测接收机"
+              "deviceName": "增强型罗兰授时监测接收机"
             },
             {
               "provinceName":"吉林省",
