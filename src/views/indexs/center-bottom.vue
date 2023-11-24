@@ -246,11 +246,9 @@ export default {
         margin-bottom: 5px;
       }
       .text_bg{
-        background: linear-gradient(
-          92deg, #1c406c 0%, #368d95 48.8525390625%, #01aaff 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+        background: linear-gradient(92deg, #4a87d1 0%, #24b0bd 48.8525390625%, #01aaff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
       .point_title{
         font-size: 16px;
